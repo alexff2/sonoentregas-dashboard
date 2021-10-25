@@ -5,7 +5,7 @@ import Routes from './routes'
 import Header from './components/Header'
 
 import themDefault from './styles/themes/themeDefault'
-import GlobalStyles from './styles/global'
+import GlobalStyles from './styles/globalStyles'
 
 const App: React.FC = () => {
   return (
