@@ -1,11 +1,15 @@
 import React from 'react'
 import ChartSalesByDate from '../../components/ChartSalesByDate'
 
+import { Container, ContainerChart } from './styles'
+
 const Dashboard: React.FC = () => {
   return (
-    <div>
-      <ChartSalesByDate />
-    </div>
+    <Container>
+      <ContainerChart>
+        <ChartSalesByDate />
+      </ContainerChart>
+    </Container>
   )
 }
 

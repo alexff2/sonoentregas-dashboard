@@ -27,6 +27,7 @@ export default createGlobalStyle`
     background-color: ${props => props.theme.colors.backgroud};
     font: 500 1rem sans-serif;
     color: ${props => props.theme.colors.text};
+    padding: ${props => props.theme.space[2]}px;
   }
 
   h1 {
