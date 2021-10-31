@@ -1,6 +1,8 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
+import { ContainerChart } from '../../styles/global'
+
 const data = {
   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   datasets: [
@@ -23,16 +25,28 @@ const data = {
 
 const ChartSalesByDate: React.FC = () => (
   <>
-    <h2>Vendas por dia</h2>
-    <Line 
-      data={data} options={{
-        scales: {
-          yAxes: {
-            type: 'linear'
+    <h2>Vendas/Entregas dos ultimos 15 dias</h2>
+    <ContainerChart>
+      <Line 
+        data={data} options={{
+          scales: {
+            yAxes: {
+              type: 'linear'
+            },
+          },
+          maintainAspectRatio: false,
+          responsive: true,
+          color: '#fff',
+          datasets: {
+            line: {
+              segment: {
+                backgroundColor: 'red'
+              }
+            }
           }
-        },
-      }}
-    />
+        }}
+      />
+    </ContainerChart>
   </>
 );
 

@@ -1,14 +1,62 @@
 import React from 'react'
-import ChartSalesByDate from '../../components/ChartSalesByDate'
 
-import { Container, ContainerChart } from './styles'
+import ChartSalesByShop from '../../components/ChartSalesBy'
+import ChartSalesByDate from '../../components/ChartSalesByDate'
+import ChartSalesWait from '../../components/ChartSalesWait'
+
+import { Container, Box1, Box2, Box3, BoxChart, Box4, Box5 } from './styles'
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      <ContainerChart>
+      <Box1>
+        <h2>Entregas no prazo</h2>
+        <label>96 %</label>
+        <div>
+          <span>Dentro: 600 Fora: 600</span>
+        </div>
+      </Box1>
+      <Box2>
+        <ChartSalesWait />
+      </Box2>
+      <Box3>
+        <h2>Status das vendas</h2>
+
+        <h3>Vendas abertas</h3>
+        <div>
+          <span>Vendas em Montagem</span><span>2</span>
+        </div>
+        <div>
+          <span>Vendas em Deslocamento</span><span>3</span>
+        </div><br/><br/>
+
+        <h3>Vendas Finalizadas</h3>
+        <div>
+          <span>Total</span><span>2</span>
+        </div>
+      </Box3>
+      <Box4>
+        <h2>Status de Rotas</h2>
+
+        <h3>Rotas abertas</h3>
+        <div>
+          <span>Rotas em Montagem</span><span>2</span>
+        </div>
+        <div>
+          <span>Rotas em Deslocamento</span><span>3</span>
+        </div><br/><br/>
+
+        <h3>Rotas Finalizadas</h3>
+        <div>
+          <span>Total</span><span>2</span>
+        </div>
+      </Box4>
+      <BoxChart>
         <ChartSalesByDate />
-      </ContainerChart>
+      </BoxChart>
+      <Box5>
+        <ChartSalesByShop />
+      </Box5>
     </Container>
   )
 }
