@@ -1,13 +1,12 @@
-import { useHistory } from "react-router"
+import { Navigate } from "react-router"
 import { authLogin } from "../../services/auth"
 import { ContainerLogin, FildsLogin, InputField } from "./styles"
 
 const Login: React.FC = (props) => {
-  let history = useHistory()
 
   const login = () => {
     authLogin('teste123')
-    history.push('/dashboard')
+    Navigate({to: '/dashboard'})
   }
 
   return(
