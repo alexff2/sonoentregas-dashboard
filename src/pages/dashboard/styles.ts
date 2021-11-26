@@ -21,7 +21,7 @@ const BoxDefault = styled.div`
   background-color: ${props => props.theme.colors.primary};
   color: #fff;
   padding: ${props => props.theme.space[3]}px;
-  border-radius: ${props => props.theme.borderRadius}rem;
+  border-radius: ${props => props.theme.borderRadius};
   
   @media(max-width: 860px){
     width: 80%;

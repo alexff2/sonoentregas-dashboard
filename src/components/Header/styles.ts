@@ -12,8 +12,8 @@ export const HeaderDiv = styled.header`
   font-size: 1.2rem;
   padding: 0 0.8rem;
   margin-bottom: 0.5rem;
-  border-radius: ${props => props.theme.borderRadius}rem;
-
+  border-radius: ${props => props.theme.borderRadius};
+  
   div {
     input[type=date] {
       height: 2rem;
@@ -21,9 +21,13 @@ export const HeaderDiv = styled.header`
       outline: none;
       background-color: transparent;
       cursor: pointer;
-    }
-    input[type=date]::-webkit-calendar-picker-indicator {
-      background-color: #fff;
+      
+      ::-webkit-calendar-picker-indicator {
+        background-color: #fff;
+        border-radius: ${props => props.theme.borderRadius};
+        margin-left: -15px;
+        cursor: pointer;
+      }
     }
   }
 

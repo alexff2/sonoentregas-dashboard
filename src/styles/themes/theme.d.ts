@@ -11,12 +11,15 @@ declare module 'styled-components' {
       green2: string;
       champagne: string;
       tangerine: string;
+      tangerine: string;
+      gray: string;
+      grayLigth: string;
       backgroud: string;
       text: string;    
     }
 
     space: number[]
 
-    borderRadius: number
+    borderRadius: string
   }
 }
