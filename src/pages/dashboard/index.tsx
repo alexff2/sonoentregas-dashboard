@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ChartSalesByShop from '../../components/ChartSalesBy'
-import ChartSalesByDate from '../../components/ChartSalesByDate'
-import ChartSalesWait from '../../components/ChartSalesWait'
+import ChartSalesByShop from '../../components/ChartSalesByShop'
+import ChartSalesDeliverys from '../../components/ChartSalesDeliverys'
+import ChartSalesPending from '../../components/ChartSalesPending'
 
 import { Container, Box1, Box2, Box3, BoxChart, Box4, Box5 } from './styles'
 
@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
         </div>
       </Box1>
       <Box2>
-        <ChartSalesWait />
+        <ChartSalesPending />
       </Box2>
       <Box3>
         <h2>Status das vendas</h2>
@@ -52,7 +52,7 @@ const Dashboard: React.FC = () => {
         </div>
       </Box4>
       <BoxChart>
-        <ChartSalesByDate />
+        <ChartSalesDeliverys />
       </BoxChart>
       <Box5>
         <ChartSalesByShop />
