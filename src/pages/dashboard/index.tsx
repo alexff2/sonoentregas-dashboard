@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useDashboard } from '../../context/DashboardContext'
+
 import ChartSalesByShop from '../../components/ChartSalesByShop'
 import ChartSalesDeliverys from '../../components/ChartSalesDeliverys'
 import ChartSalesPending from '../../components/ChartSalesPending'
@@ -7,13 +9,15 @@ import ChartSalesPending from '../../components/ChartSalesPending'
 import { Container, Box1, Box2, Box3, BoxChart, Box4, Box5 } from './styles'
 
 const Dashboard: React.FC = () => {
+  const { percDelivOnTime, delivLate, delivOnTime } = useDashboard()
+
   return (
     <Container>
       <Box1>
         <h2>Entregas no prazo</h2>
-        <label>96 %</label>
+        <label>{percDelivOnTime}<span>%</span></label>
         <div>
-          <span>Dentro: 600 Fora: 600</span>
+          <span>Dentro: {delivOnTime} &nbsp;&nbsp; Fora: {delivLate}</span>
         </div>
       </Box1>
       <Box2>

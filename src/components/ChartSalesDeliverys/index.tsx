@@ -4,24 +4,24 @@ import { useDashboard } from '../../context/DashboardContext'
 import { ContainerChart } from '../../styles/global'
 
 const ChartSalesByDate: React.FC = () => {
-  const { days, delivByday, salesByday } = useDashboard()
+  const { issue, delivArray, salesArray } = useDashboard()
   return(<>
     <h2>Vendas/Entregas dos ultimos 15 dias</h2>
     <ContainerChart>
       <Line 
         data={{
-          labels: days,
+          labels: issue,
           datasets: [
             {
               label: 'Vendas',
-              data: salesByday,
+              data: salesArray,
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgba(255, 99, 132, 0.2)',
               tension: 0.3
             },
             {
               label: 'Entregas',
-              data: delivByday,
+              data: delivArray,
               backgroundColor: 'rgb(54, 162, 235)',
               borderColor: 'rgba(54, 162, 235, 0.2)',
               tension: 0.3

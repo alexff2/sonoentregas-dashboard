@@ -5,42 +5,51 @@ import { useEmissao } from './EmissaoContext'
 import api from '../services/api'
 
 interface Dashboard {
-  days: string[]
-  salesByday: number[]
-  delivByday: number[]
+  issue: string[]
+  salesArray: number[]
+  delivArray: number[]
+  delivTot: number
+  delivOnTime: number
+  delivLate: number
+  percDelivOnTime: number
 }
 
 const defaultValue = {
-  days: [''],
-  salesByday: [0],
-  delivByday: [0]
+  issue: [''],
+  salesArray: [0],
+  delivArray: [0],
+  delivTot: 0,
+  delivOnTime: 0,
+  delivLate: 0,
+  percDelivOnTime: 0.1
 }
 
 const DashboardContext = createContext<Dashboard>(defaultValue)
 
 const DashboardProvider: React.FC = ({ children }) => {
-  const [ days, setDays ] = useState<[string]>([''])
-  const [ salesByday, setSalesByday ] = useState<[number]>([0])
-  const [ delivByday, setDelivByday ] = useState<[number]>([0])
+  const [ datas, setDatas ] = useState<Dashboard>(defaultValue)
+
   const { emissao } = useEmissao()
 
   useEffect(()=>{
-    api.get(`/dashboard/salesbydeliv/${emissao}`)
+    api.get(`/dashboard/${emissao}`)
       .then(res => {
         for (let i = 0; i < res.data.issue.length; i++) {
           res.data.issue[i] = format(new Date(parseISO(res.data.issue[i])), 'dd/MM/yyyy')
         }
-        setDays(res.data.issue)
-        setSalesByday(res.data.salesArray)
-        setDelivByday(res.data.delivArray)
+        setDatas(res.data)
       })
   },[emissao])
 
   return (
     <DashboardContext.Provider value={{
-      days,
-      salesByday,
-      delivByday
+      issue: datas.issue,
+      salesArray: datas.salesArray,
+      delivArray: datas.delivArray,
+      delivTot: datas.delivTot,
+      delivOnTime: datas.delivOnTime,
+      delivLate: datas.delivLate,
+      percDelivOnTime: datas.percDelivOnTime
     }}>
       {children}
     </DashboardContext.Provider>

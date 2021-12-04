@@ -48,6 +48,10 @@ export const Box1 = styled(BoxDefault)`
     @media(min-width: 860px) and (max-width: 1130px){
       font-size: 3.5rem;
     }
+
+    span {
+      font-size: 2rem
+    }
   }
 `
 export const Box2 = styled(BoxDefault)`
