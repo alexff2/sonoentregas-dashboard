@@ -2,10 +2,10 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 20% 37% 20% 20%;
+  grid-template-columns: 37% 20% 20% 20%;
   grid-template-rows: 35vh 55vh;
   grid-gap: 1%;
-  grid-template-areas: "a1 a2 a3 a4" "a5 a5 a5 a6";
+  grid-template-areas: "a2 a3 a4 a1" "a5 a5 a5 a6";
 
   @media(max-width: 860px){
     display: flex;

@@ -9,7 +9,12 @@ import ChartSalesPending from '../../components/ChartSalesPending'
 import { Container, Box1, Box2, Box3, BoxChart, Box4, Box5 } from './styles'
 
 const Dashboard: React.FC = () => {
-  const { percDelivOnTime, delivLate, delivOnTime } = useDashboard()
+  const { 
+    percDelivOnTime,
+    delivLate,
+    delivOnTime,
+    salesDevInfos
+  } = useDashboard()
 
   return (
     <Container>
@@ -28,15 +33,15 @@ const Dashboard: React.FC = () => {
 
         <h3>Vendas abertas</h3>
         <div>
-          <span>Vendas em Montagem</span><span>2</span>
+          <span>Vendas em Montagem</span><span>{salesDevInfos.salesOnRelease}</span>
         </div>
         <div>
-          <span>Vendas em Deslocamento</span><span>3</span>
+          <span>Vendas em Deslocamento</span><span>{salesDevInfos.salesOnDelivring}</span>
         </div><br/><br/>
 
         <h3>Vendas Finalizadas</h3>
         <div>
-          <span>Total</span><span>2</span>
+          <span>Total</span><span>{salesDevInfos.salesFinish}</span>
         </div>
       </Box3>
       <Box4>
@@ -44,15 +49,15 @@ const Dashboard: React.FC = () => {
 
         <h3>Rotas abertas</h3>
         <div>
-          <span>Rotas em Montagem</span><span>2</span>
+          <span>Rotas em Montagem</span><span>{salesDevInfos.devOnRelease}</span>
         </div>
         <div>
-          <span>Rotas em Deslocamento</span><span>3</span>
+          <span>Rotas em Deslocamento</span><span>{salesDevInfos.delivering}</span>
         </div><br/><br/>
 
         <h3>Rotas Finalizadas</h3>
         <div>
-          <span>Total</span><span>2</span>
+          <span>Total</span><span>{salesDevInfos.devFinish}</span>
         </div>
       </Box4>
       <BoxChart>

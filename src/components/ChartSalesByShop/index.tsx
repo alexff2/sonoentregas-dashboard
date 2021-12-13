@@ -1,22 +1,25 @@
 import { Bar } from "react-chartjs-2"
+import { useDashboard } from "../../context/DashboardContext"
 import { ContainerChart } from "../../styles/global"
 
 const ChartSalesByShop: React.FC = () => {
+  const { salesByShop, delivTot } = useDashboard()
   return(
     <>
       <h2>Entregas por lojas</h2>
       <ContainerChart>
         <Bar 
           data={{
-            labels: ['JP1', 'JP2', 'Cohab', 'Ilha', 'R. Anil'],
+            labels: salesByShop.labels,
             datasets: [
               {
-                data: [12, 19, 3, 5, 3],
+                data: salesByShop.datas,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
                   'rgba(255, 206, 86, 0.2)',
                   'rgba(75, 192, 192, 0.2)',
+                  'rgba(14, 102, 255, 0.2)',
                   'rgba(153, 102, 255, 0.2)',
                 ],
                 borderColor: [
@@ -24,6 +27,7 @@ const ChartSalesByShop: React.FC = () => {
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
+                  'rgba(14, 102, 255, 1)',
                   'rgba(153, 102, 255, 1)',
                 ],
                 borderWidth: 1,
@@ -46,7 +50,7 @@ const ChartSalesByShop: React.FC = () => {
                 display: false
               },
               title: {
-                text: 'Total 37',
+                text: `${delivTot}`,
                 display: true,
                 color: '#fff'
               }

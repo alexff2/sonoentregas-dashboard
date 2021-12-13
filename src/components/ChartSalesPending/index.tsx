@@ -1,17 +1,10 @@
-import { useEffect, useState } from 'react'
 import { Pie } from 'react-chartjs-2'
 
 import { ContainerChart } from '../../styles/global'
+import { useDashboard } from '../../context/DashboardContext'
 
 const ChartSalesWait: React.FC = () => {
-  const [ data, setData ] = useState([0, 0, 0, 0])
-  const [ tot, setTot ] = useState(0)
-
-  useEffect(()=>{
-    const resData = [12, 19, 3, 5]
-    setData(resData)
-    setTot(resData.reduce((tot, nextElement) => tot + nextElement))
-  },[])
+  const { salesOpenDatas } = useDashboard()
 
   return (
     <>
@@ -19,21 +12,19 @@ const ChartSalesWait: React.FC = () => {
       <ContainerChart>
         <Pie 
           data={{
-            labels: ['Atrasadas', 'Aguardando', 'Sem estoque', 'Agendadas'],
+            labels: [`Atrasadas - ${salesOpenDatas.statusSales[0]}`, `Aguardando - ${salesOpenDatas.statusSales[1]}`, `Agendadas - ${salesOpenDatas.statusSales[2]}`],
             datasets: [
               {
                 label: '# of Votes',
-                data: data,
+                data: salesOpenDatas.statusSales,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
                   'rgba(75, 192, 192, 0.2)',
                 ],
                 borderColor: [
                   'rgba(255, 99, 132, 1)',
                   'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1,
@@ -53,10 +44,10 @@ const ChartSalesWait: React.FC = () => {
               },
               title: {
                 display: true,
-                text: `Total de vendas: ${tot}`,
+                text: `Total de vendas: ${salesOpenDatas.totSalesOpen}`,
                 color: '#fff'
               }
-            }
+            },
           }}
         />
       </ContainerChart>
