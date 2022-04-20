@@ -8,7 +8,7 @@ export const ContainerLogin = styled.div`
 `
 
 export const BoxLogin = styled.div`
-  background-color: white;
+  background-color: #f1f2f6;
   padding: 2rem;
   border-radius: ${props => props.theme.borderRadius};
 
